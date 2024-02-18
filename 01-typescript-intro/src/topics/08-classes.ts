@@ -12,11 +12,22 @@ export class Person {
 
     constructor(
         public name?:string, 
-        private address?:string
+        public address?:string
         ) {}
 }
 
-const iroman = new Person('Wilmer', 'Espana')
-console.log(iroman)
+export class Hero extends Person {
+    constructor( 
+        public alterEgo: string, 
+        public age: number, 
+        public realName: string
+        ) {
+        super(realName,'New York')
+
+    }
+}
+
+const ironman = new Hero('Ironman',45, 'Tony Stark')
+console.log(ironman)
 //esto no deberia imprimir pero se imprime por javascript
-console.log(iroman.address)
+// console.log(iroman.address)
