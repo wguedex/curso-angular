@@ -9,5 +9,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = '02-bases';
+  public title:string = 'Mi primera app en Angular';
+  public counter : number = 10;
+
 }
