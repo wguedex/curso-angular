@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeroComponent } from './heroes/hero/hero.component';
 import { CounterComponent } from './counter/counter.component';
 import { HeroesListComponent } from './heroes/list/list.component';
+
 
 
 @NgModule({
@@ -13,10 +15,10 @@ import { HeroesListComponent } from './heroes/list/list.component';
     CounterComponent,
     HeroComponent,
     HeroesListComponent
-
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
