@@ -18,4 +18,10 @@ export class MainPageComponent {
       power: 5000,
     },
   ];
+
+  onNewCharacterPadre(character:Character): void {
+    console.log('onNewCharacterPadre - MainPage');
+    console.log(character);
+  }
+
 }
