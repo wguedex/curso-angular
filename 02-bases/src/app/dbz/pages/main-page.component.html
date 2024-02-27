@@ -2,7 +2,8 @@
 <hr>
 <div class="row">
  <div class="col">
-  <app-dbz-list [CharacterList]="Characters"></app-dbz-list>
+  <app-dbz-list [CharacterList]="characters"
+  (onDelCharacter)="onDeleteCharacterPadre($event)"></app-dbz-list>
  </div>
  <div class="col">
   <app-dbz-addcharacter (onNewCharacter)="onNewCharacterPadre($event)"></app-dbz-addcharacter>

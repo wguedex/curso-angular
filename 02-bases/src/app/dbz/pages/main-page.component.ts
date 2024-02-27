@@ -8,7 +8,7 @@ import { Character } from '../interfaces/character.interface';
 
 export class MainPageComponent {
 
-  public Characters: Character[] = [
+  public characters: Character[] = [
     {
       name: 'Krilling',
       power: 2000,
@@ -19,9 +19,12 @@ export class MainPageComponent {
     },
   ];
 
-  onNewCharacterPadre(character:Character): void {
-    console.log('onNewCharacterPadre - MainPage');
-    console.log(character);
+  onNewCharacterPadre(character: Character): void {
+    this.characters.push(character);
+  }
+
+  onDeleteCharacterPadre(index: number): void {
+    this.characters.splice(index,1);
   }
 
 }

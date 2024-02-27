@@ -8,12 +8,14 @@ class="row"
   name="name"
   class="form-control mb-2"
   placeholder="Nombre">
+
   <input
   type="number"
   [(ngModel)]="character.power"
   name="power"
   class="form-control mb-2"
   placeholder="Poder">
+
   <button type="submit" class="btn btn-primary">Agregar</button>
-  <pre>{{character | json }}</pre>
+
 </form>
