@@ -9,12 +9,18 @@ import { Component, OnInit } from '@angular/core';
   type="text"
   class="form-control"
   placeholder="Buscar Gifs"
+  #txtTagInput
+  (keyup.enter)="searchTag(txtTagInput.value)"
   >
   `
 })
 
-export class SearchBoxComponent implements OnInit {
+export class SearchBoxComponent {
   constructor() { }
 
-  ngOnInit() { }
+  searchTag(newTag:string){
+    console.log({newTag})
+  }
+
+
 }
