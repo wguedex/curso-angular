@@ -6,7 +6,9 @@ import { AppComponent } from './app.component';
 import { GifsModule } from './gifs/gifs.module';
 import { SharedModule } from './shared/shared.module';
 
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'; // Make sure to import this
+
+
 
 @NgModule({
   declarations: [
@@ -18,6 +20,7 @@ import {HttpClientModule} from '@angular/common/http'
     SharedModule,
     AppRoutingModule
   ],
+  exports: [HttpClientModule],
   providers: [],
   bootstrap: [AppComponent]
 })
