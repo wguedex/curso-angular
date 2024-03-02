@@ -1,1 +1,19 @@
-<p>lazy-image works!</p>
+
+<div class="d-flex justify-content-center">
+
+  <img
+  [src]="url"
+  class="card-img-top"
+  alt=""
+  (load)="onLoad()"
+  [ngStyle]="{display:hasLoaded?'':'none'}">
+
+  <img
+  *ngIf="!hasLoaded"
+  src="assets/loader.svg"
+  height="35px"
+  width="35px"
+  class="mt-3 card-img-top"
+  alt="">
+
+</div>
