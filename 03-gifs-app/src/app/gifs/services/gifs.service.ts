@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -6,7 +7,7 @@ import { Injectable } from '@angular/core';
 export class GifsService {
   private _tagHistory: string[] = [];
 
-  constructor() {}
+  private GIPHY_API_KEY = '3uOo3EGUwjvBi1nYIrTWWPoRM4GWIPD3';
 
   get tagHistory() {
     return [...this._tagHistory];
@@ -26,13 +27,20 @@ export class GifsService {
 
   }
 
-  public searchTag(tag: string): void {
+  // public searchTag(tag: string): void {
+  //   if (tag.length === 0 ) return;
+  //   this._organizeHistory(tag)
+  // }
+
+  public async searchTag(tag: string): Promise<void> {
 
     if (tag.length === 0 ) return;
-
     this._organizeHistory(tag)
 
-    // console.log('Desde el servicio')
-    // this._tagHistory.unshift(tag);
+    fetch('https://api.giphy.com/v1/gifs/search?api_key=3uOo3EGUwjvBi1nYIrTWWPoRM4GWIPD3&q=valorant&limit=10')
+    .then(resp=>resp.json())
+    .then(data=>console.log(data))
+
   }
+
 }
