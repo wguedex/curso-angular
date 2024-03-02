@@ -31,7 +31,12 @@ export class GifsService {
   //incluir tag en el history
   this._tagHistory.unshift(tag)
   this._tagHistory = this.tagHistory.splice(0,10)
+  this._saveLocalStorage()
 
+  }
+
+  private _saveLocalStorage(): void{
+    localStorage.setItem('history', JSON.stringify(this._tagHistory));
   }
 
   public async searchTag(tag: string): Promise<void> {
