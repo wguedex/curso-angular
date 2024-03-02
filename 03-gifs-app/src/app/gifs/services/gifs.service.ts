@@ -27,19 +27,16 @@ export class GifsService {
 
   }
 
-  // public searchTag(tag: string): void {
-  //   if (tag.length === 0 ) return;
-  //   this._organizeHistory(tag)
-  // }
-
   public async searchTag(tag: string): Promise<void> {
 
     if (tag.length === 0 ) return;
     this._organizeHistory(tag)
 
-    fetch('https://api.giphy.com/v1/gifs/search?api_key=3uOo3EGUwjvBi1nYIrTWWPoRM4GWIPD3&q=valorant&limit=10')
-    .then(resp=>resp.json())
-    .then(data=>console.log(data))
+
+    const resp = await fetch('https://api.giphy.com/v1/gifs/search?api_key=3uOo3EGUwjvBi1nYIrTWWPoRM4GWIPD3&q=valorant&limit=10')
+
+    const data = await resp.json()
+    console.log(data)
 
   }
 
