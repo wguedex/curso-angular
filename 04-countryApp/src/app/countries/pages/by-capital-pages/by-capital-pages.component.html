@@ -3,12 +3,7 @@
 <div class="row">
   <div class="col">
     <!-- SearchBox -->
-    <shared-search-box></shared-search-box>
-</div>
-
-<div class="row">
-  <div class="col">
-    <hr>
-    tabla de resultados
-  </div>
+    <shared-search-box
+    (onValue)="onSearchByCapital($event)"
+    ></shared-search-box>
 </div>

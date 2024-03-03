@@ -2,5 +2,6 @@
 type="text"
 [placeholder]="placeHolder"
 class="form-control"
-width="50%"/>
+#txtTagInput
+(keyup.enter)="emitValue(txtTagInput.value)"/>
 
