@@ -22,6 +22,11 @@ const routes: Routes = [
     path: 'by/:id',
     component: CountryPagesComponent,
   },
+  {
+    path: '**',
+    redirectTo: 'by-country',
+  },
+
 ];
 
 @NgModule({
