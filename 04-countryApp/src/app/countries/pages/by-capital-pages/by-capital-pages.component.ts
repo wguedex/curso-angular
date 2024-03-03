@@ -21,8 +21,6 @@ export class ByCapitalPagesComponent {
       this.countries = countries;
     })
 
-    // console.log('Desde ByCapitalPage')
-    // console.log({value})
   }
 
 
