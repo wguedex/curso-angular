@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-by-country-pages',
@@ -19,22 +20,53 @@ export class CountryPagesComponent implements OnInit {
 
   constructor(
     private countriesService: CountriesService,
-    private activateRoute: ActivatedRoute
+    private activateRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   onSearchByCountryID(value: string) {
     this.countriesService.searchCountryByID(value).subscribe((countries) => {
-      this.countries = countries;
+
     });
   }
 
   ngOnInit(): void {
-    this.activateRoute.params.subscribe(({ id }) => {
-      // console.log({params:id})
-      this.countriesService.searchCountryByID(id)
-      .subscribe(country=>{
-        console.log({country})
+
+    this.activateRoute.params
+      .pipe(
+        switchMap(({ id }) => this.countriesService.searchCountryByID( id ))
+      )
+      .subscribe(country => {
+        if (!country){
+          return this.router.navigateByUrl('');
+        }
+         console.log({country});
+         return;
       });
-    });
+
   }
-}
+
+
+  // ngOnInit(): void {
+
+  //   this.activateRoute.params
+  //   .pipe(
+  //     switchMap({ id }) => this.countriesService.searchCountryByID(id)),
+  //   )
+  //   .subscribe(({ id }) => {
+  //     this.countriesService.searchCountryByID(id)
+  //     .subscribe(country=>{
+  //       console.log({country})
+  //     });
+  //   });
+
+    // this.activateRoute.params.subscribe(({ id }) => {
+    //   // console.log({params:id})
+    //   this.countriesService.searchCountryByID(id)
+    //   .subscribe(country=>{
+    //     console.log({country})
+    //   });
+    // });
+
+  }
+
