@@ -16,6 +16,9 @@ import { switchMap } from 'rxjs';
   ],
 })
 export class CountryPagesComponent implements OnInit {
+
+
+  public country?: Country;
   public countries: Country[] = [];
 
   constructor(
@@ -40,7 +43,7 @@ export class CountryPagesComponent implements OnInit {
         if (!country){
           return this.router.navigateByUrl('');
         }
-         console.log({country});
+         this.country=country;
          return;
       });
 
