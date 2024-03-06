@@ -1,14 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CountriesService } from '../../services/countries.service';
 import { Country } from '../../interfaces/country';
 
 @Component({
   selector: 'app-by-capital-pages',
   templateUrl: './by-capital-pages.component.html',
-  styles: ``
+  styles:[
+    `img {
+      width: 25px
+    }`
+  ]
 })
 export class ByCapitalPagesComponent {
 
+  @Input()
   public countries: Country[] = [];
 
   constructor(private countriesService : CountriesService) {
@@ -22,7 +27,5 @@ export class ByCapitalPagesComponent {
     })
 
   }
-
-
 
 }

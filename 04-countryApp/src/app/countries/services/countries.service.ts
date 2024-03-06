@@ -25,25 +25,10 @@ export class CountriesService {
 
   }
 
-  searchCountry(term:string): Observable<Country[]> {
+  searchCountry(country:string): Observable<Country[]> {
 
-    console.log({term})
-    const url = `${this.apiUrl}/capital/${term}`
-
-    return this.httpCliente.get<Country[]>(url)
-    .pipe(
-      catchError( error => {
-        console.log(error);
-        return of([]);
-      })
-    );
-
-  }
-
-  searchRegion(term:string): Observable<Country[]> {
-
-    console.log({term})
-    const url = `${this.apiUrl}/capital/${term}`
+    console.log({country})
+    const url = `${this.apiUrl}/name/${country}`
 
     return this.httpCliente.get<Country[]>(url)
     .pipe(
@@ -55,7 +40,19 @@ export class CountriesService {
 
   }
 
+  searchRegion(region:string): Observable<Country[]> {
 
+    console.log({region})
+    const url = `${this.apiUrl}/region/${region}`
 
+    return this.httpCliente.get<Country[]>(url)
+    .pipe(
+      catchError( error => {
+        console.log(error);
+        return of([]);
+      })
+    );
+
+  }
 
 }
