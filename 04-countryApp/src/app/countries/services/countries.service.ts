@@ -55,4 +55,19 @@ export class CountriesService {
 
   }
 
+  searchCountryByID(ID:string): Observable<Country[]> {
+
+    console.log({ID})
+    const url = `${this.apiUrl}/alpha/${ID}`
+
+    return this.httpCliente.get<Country[]>(url)
+    .pipe(
+      catchError( error => {
+        console.log(error);
+        return of([]);
+      })
+    );
+
+  }
+
 }
