@@ -1,11 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+const RTX5090 = {
+  name: 'RTX5090',
+  price: 2500,
+  inStorage: 6
+}
 
 @Component({
   selector: 'app-basic-page',
   templateUrl: './basic-page.component.html',
 })
-export class BasicPageComponent {
+export class BasicPageComponent implements OnInit{
   // Forma1:
   // PRIMER ARREGLO SYNCRONO
   // SEGUNDO ARREGLO ASYNCRONO
@@ -24,11 +30,18 @@ export class BasicPageComponent {
 
   constructor(private fb: FormBuilder) {}
 
+  ngOnInit() : void{
+    this.myForm.reset(RTX5090)
+  }
+
   onSave() : void{
 
     if (this.myForm.invalid) return;
 
     console.log(this.myForm.value)
+
+    this.myForm.reset({price:0, inStorage:0})
+
   }
 
 }
