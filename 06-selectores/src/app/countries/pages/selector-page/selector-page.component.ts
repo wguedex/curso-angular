@@ -9,6 +9,8 @@ import { switchMap } from 'rxjs';
 })
 export class SelectorPageComponent implements OnInit{
 
+  public countriesByRegion: SmallCountry[] = [];
+
   public myForm: FormGroup =  this.fb.group({
     region: ['', Validators.required],
     country: ['', Validators.required],
@@ -30,8 +32,9 @@ export class SelectorPageComponent implements OnInit{
       switchMap( region => this.countriesService.getCountriesByRegion(region)
        )
     )
-    .subscribe(region =>{
-      console.log({region})
+    .subscribe(countries =>{
+      this.countriesByRegion = countries;
+      // console.log({region})
     })
   }
 
