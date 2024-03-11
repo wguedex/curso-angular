@@ -5,6 +5,7 @@ import {
   AfterViewInit,
   Component,
   DoCheck,
+  Input,
   OnChanges,
   OnDestroy,
   OnInit,
@@ -27,6 +28,10 @@ export class ProductComponent
     AfterViewChecked,
     OnDestroy
 {
+
+  public isProductVisible: boolean = false;
+  public currentPrice: number = 10;
+
   constructor() {
     console.log('constructor');
   }
@@ -49,10 +54,15 @@ export class ProductComponent
     console.log('ngOnDestroy');
   }
   ngOnChanges(changes: SimpleChanges): void {
+    console.log({changes});
     console.log('ngOnChanges');
   }
   ngOnInit(): void {
     console.log('ngOnInit');
+  }
+
+  increasePrice(){
+    this.currentPrice++;
   }
 
 }
