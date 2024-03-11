@@ -16,14 +16,19 @@ export class ByCapitalPagesComponent {
   @Input()
   public countries: Country[] = [];
 
+  public isLoading: boolean = false
+
   constructor(private countriesService : CountriesService) {
 
   }
 
   onSearchByCapital(value:string): void{
 
+    this.isLoading = true;
+
     this.countriesService.searchCapital(value).subscribe(countries =>{
       this.countries = countries;
+      this.isLoading = false;
     })
 
   }

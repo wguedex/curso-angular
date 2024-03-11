@@ -7,11 +7,19 @@
     (onValue)="onSearchByCapital($event)"
     ></shared-search-box>
 </div>
-<div *ngIf="countries.length === 0 else table" class="alert alert-warning text-center">
-  No hay paises que mostrar
+<!-- <div *ngIf="countries.length === 0 else table" class="alert alert-warning text-center"> -->
+  <!-- No hay paises que mostrar -->
 </div>
 
-<ng-template #table >
+<div class="row">
+  <div class="col">
+    <hr>
+    <shared-loading-spinner *ngIf="isLoading"/>
+    <countries-table [countries]="countries"></countries-table>
+  </div>
+</div>
+
+<!-- <ng-template #table >
   <table class="table table-hover">
     <thead>
       <tr>
@@ -51,4 +59,4 @@
     </tbody>
   </table>
 </ng-template>
-
+ -->
