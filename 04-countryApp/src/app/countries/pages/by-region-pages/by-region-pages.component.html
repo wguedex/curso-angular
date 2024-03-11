@@ -3,9 +3,14 @@
 <div class="row">
   <div class="col">
     <!-- SearchBox -->
-    <shared-search-box
+    <!-- <shared-search-box
     (onValue)="onSearchByRegion($event)"
-    ></shared-search-box>
+    ></shared-search-box> -->
+    <button
+    *ngFor="let region of regions"
+    class="btn mx-2 btn-outline-primary"
+    [ngClass]="{'btn-outline-primary':selectedRegion === region}"
+    (click)="onSearchByRegion(region)">{{region}}</button>
 </div>
 <div *ngIf="countries.length === 0 else table" class="alert alert-warning text-center">
   No hay paises que mostrar
