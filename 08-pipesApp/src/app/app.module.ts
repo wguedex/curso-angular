@@ -8,6 +8,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 
+// Configuración del locale de la app
+import localeEsHN from '@angular/common/locales/es-HN';
+import localeFrCA from '@angular/common/locales/fr-CA';
+
+import { registerLocaleData } from '@angular/common';
+
+registerLocaleData( localeEsHN );
+registerLocaleData( localeFrCA );
 
 @NgModule({
   declarations: [
