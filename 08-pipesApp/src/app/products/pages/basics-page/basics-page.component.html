@@ -5,18 +5,64 @@
 
 <div class="grid mt-2">
   <div class="col-12 md:col-4">
-    <p-card header="uppercase">
-      1 - {{nameLower | uppercase}}
-    </p-card>
+    <p-card header="uppercase"> 1 - {{ nameLower | uppercase }} </p-card>
   </div>
   <div class="col-12 md:col-4">
-    <p-card header="lowercase">
-      2 - {{nameUpper | lowercase}}
-    </p-card>
+    <p-card header="lowercase"> 2 - {{ nameUpper | lowercase }} </p-card>
   </div>
   <div class="col-12 md:col-4">
+    <p-card header="titlecase"> 3 - {{ fullName | titlecase }} </p-card>
+  </div>
+
+  <div class="col-12 md:col-6">
     <p-card header="titlecase">
-      3 - {{fullName | titlecase}}
+      <ol>
+        <li>fecha</li>
+        <li>fecha | date</li>
+        <li>fecha | date : "short"</li>
+        <li>fecha | date : "long"</li>
+        <li>fecha | date : "MMMM"</li>
+        <li>fecha | date : "MMMM dd, yyyy"</li>
+      </ol>
+
+      <hr>
+      <ol>
+          <li>fecha | date:'long':'GMT-6'</li>
+          <li>fecha | date:'long':'GMT-4'</li>
+      </ol>
+
+
+    </p-card>
+  </div>
+
+  <div class="col-12 md:col-6">
+    <p-card header="titlecase">
+      <ol>
+        <li>
+          {{ customDate }}
+        </li>
+        <li>
+          {{ customDate | date }}
+        </li>
+        <li>
+          {{ customDate | date : "short" }}
+        </li>
+        <li>
+          {{ customDate | date : "long" }}
+        </li>
+        <li>
+          {{ customDate | date : "MMMM" }}
+        </li>
+        <li>
+          {{ customDate | date : "MMMM dd, yyyy" }}
+        </li>
+      </ol>
+
+      <hr>
+      <ol>
+          <li>{{ customDate | date:'long':'GMT-6' }}</li>
+          <li>{{ customDate | date:'long':'GMT-4' }}</li>
+      </ol>
     </p-card>
   </div>
 </div>
