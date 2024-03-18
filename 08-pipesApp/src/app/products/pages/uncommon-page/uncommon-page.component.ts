@@ -21,6 +21,15 @@ export class UncommonPageComponent {
     'other': "tenemos # clientes esperando."
   }
 
+  //KeyValue Pipe
+  public person = {
+    name:'Fernando',
+    age:36,
+    address: 'Ottawa, Canada'
+  }
+
+
+
   changeClient():void{
     this.name = 'Melissa';
     this.gender = 'female';
