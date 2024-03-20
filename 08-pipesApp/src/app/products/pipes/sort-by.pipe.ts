@@ -5,23 +5,19 @@ import { Hero } from '../interfaces/hero.interface';
   name: 'sortBy',
 })
 export class SortByPipe implements PipeTransform {
-  transform(hero: Hero[], sortBy: keyof Hero | null): Hero[] {
+  transform(heroes: Hero[], sortBy: keyof Hero | null): Hero[] {
     switch (sortBy) {
       case 'name':
-        return hero.sort((a, b) => (a.name > b.name ? 1 : -1));
-        break;
+        return heroes.sort((a, b) => a.name.localeCompare(b.name));
 
       case 'canFly':
-        return hero.sort((a, b) => (a.name > b.name ? 1 : -1));
-        break;
+        return heroes.sort((a, b) => Number(b.canFly) - Number(a.canFly));
 
       case 'color':
-        return hero.sort((a, b) => (a.name > b.name ? 1 : -1));
-        break;
+        return heroes.sort((a, b) => (a.name > b.name ? 1 : -1));
 
       default:
-        return hero;
-        break;
+        return heroes;
     }
   }
 }
