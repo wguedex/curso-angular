@@ -50,7 +50,7 @@
         <ng-template pTemplate="body" let-heroe>
           <tr>
             <td>{{ heroe.name }}</td>
-            <td>{{ heroe.canFly }}</td>
+            <td>{{ heroe.canFly | canFly }}</td>
             <td>{{ heroe.color }}</td>
           </tr>
         </ng-template>
