@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HeroesService } from '../../services/heroes.service';
 import { Hero } from '../../interfaces/hero.interface';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { delay, switchMap } from 'rxjs';
 
 @Component({
   selector: 'app-hero-page',
@@ -19,16 +19,19 @@ export class HeroPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.activatedRoute.params
-      .pipe(switchMap(({ id }) => this.heroesService.getHeroById(id)))
+      .pipe(
+        delay(3000),
+        switchMap(({ id }) => this.heroesService.getHeroById(id))
+        )
       .subscribe((hero) => {
         if (!hero) return this.router.navigate(['/heroes/list']);
         this.hero = hero;
         console.log({hero})
         return;
       });
+  }
 
-    // throw new Error('Method not implemented.');
-
-    // this.heroesService.getHeroes().subscribe(  this.heroes );
+  goBack(): void {
+    this.router.navigateByUrl('heroes/list')
   }
 }
