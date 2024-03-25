@@ -1,7 +1,7 @@
 <h1>
-  Editar / Agregar
+  {{ currentHero.id ? 'Editar' : 'Agregar' }}
   héroe
-  <small>Superman</small>
+  <small *ngIf="currentHero.id">{{ currentHero.superhero }}</small>
 </h1>
 
 <mat-divider class="mb-2"></mat-divider>
@@ -12,7 +12,7 @@
     <mat-card>
       <mat-card-content>
 
-        <form class="grid" [formGroup]="heroForm"   (ngSubmit)="onSubmit()">
+        <form class="grid" [formGroup]="heroForm" (ngSubmit)="onSubmit()">
 
           <mat-form-field class="col-12 sm:col-6">
             <mat-label>Super héroe</mat-label>
@@ -58,8 +58,9 @@
           <mat-form-field class="col-12">
             <mat-label>Creador</mat-label>
             <mat-select
-            formControlName="publisher"
-            required>
+              formControlName="publisher"
+              required
+            >
               <mat-option *ngFor="let publisher of publishers"
                 [value]="publisher.id">
                 {{ publisher.desc }}
@@ -76,15 +77,19 @@
             />
           </mat-form-field>
 
+
         </form>
 
         <div class="flex justify-content-between">
           <button
+            *ngIf="currentHero.id"
+            (click)="onDeleteHero()"
             mat-flat-button
             color="warn"
           >
             Borrar
           </button>
+          <span></span>
 
           <button
             mat-flat-button
@@ -108,77 +113,3 @@
 
   </div>
 </div>
-
-
-
-
-<!-- <h1>
-  Editar / Agregar
-  Héroe
-  <small>Superman</small>
-</h1>
-
-<mat-divider class="mb-2"></mat-divider>
-
-<div class="grid">
-  <div class="col-12 sm:col-6">
-    <mat-card>
-      <mat-card-content>
-        <div class="grid">
-          <mat-form-field class="col-12 sm:col-6">
-            <mat-label>Super héroe</mat-label>
-            <input
-            matInput
-            type="text"
-            required>
-          </mat-form-field>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div class="col-12 sm:col-6">
-    <mat-card>
-      <mat-card-content>
-        <div class="grid">
-          <mat-form-field class="col-12 sm:col-6">
-            <mat-label>Alter ego</mat-label>
-            <input
-            matInput
-            type="text"
-            required>
-          </mat-form-field>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div class="col-12 sm:col-6">
-    <mat-card>
-      <mat-card-content>
-        <div class="grid">
-          <mat-form-field class="col-12">
-            <mat-label>Personajes</mat-label>
-            <input
-            matInput
-            type="text"
-            required>
-          </mat-form-field>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
-  <div class="col-12 sm:col-6">
-    <mat-card>
-      <mat-card-content>
-        <div class="grid">
-          <mat-form-field class="col-12">
-            <mat-label>Creador</mat-label>
-            <input
-            matInput
-            type="text"
-            required>
-          </mat-form-field>
-        </div>
-      </mat-card-content>
-    </mat-card>
-  </div>
-</div> -->
