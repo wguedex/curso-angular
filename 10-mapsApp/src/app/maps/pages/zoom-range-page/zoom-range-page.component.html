@@ -2,15 +2,18 @@
 
 <div class="floating-range p-2">
   <div class="floating-content p-2">
-    <button class="btn btn-primary">-</button>
+    <button (click)="zoomOut()" class="btn btn-primary">-</button>
     <input type="range"
     class="form-range px-2"
     min="-2"
-    max="18">
-    <button class="btn btn-primary">+</button>
+    max="18"
+    [value]="zoom"
+    (input)="zoomChanged(zoomInput.value)"
+    #zoomInput>
+    <button (click)="zoomIn()" class="btn btn-primary">+</button>
   </div>
   <span class="form-label">
-    Zoom: {{10.123}}
+    Zoom: {{zoom | number:'2.2-2'}}
     <br>
     Lgn, Lat {{'valores'}}
   </span>
