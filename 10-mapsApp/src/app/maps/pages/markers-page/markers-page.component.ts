@@ -22,10 +22,8 @@ export class MarkersPageComponent {
 
   public markers: MarkerAndColor[] = [];
 
-
   public map?: Map;
   public currentLngLat: LngLat = new LngLat(-74.10380784179445, 4.651165392795477);
-
 
   ngAfterViewInit(): void {
 
@@ -63,6 +61,7 @@ export class MarkersPageComponent {
 
 
   addMarker( lngLat: LngLat, color: string ) {
+
     if ( !this.map ) return;
 
     const marker = new Marker({
@@ -72,12 +71,21 @@ export class MarkersPageComponent {
       .setLngLat( lngLat )
       .addTo( this.map );
 
+      this.markers.push( {color, marker} );
+
     // this.markers.push({ color, marker, });
     // this.saveToLocalStorage();
 
     // marker.on('dragend', () => this.saveToLocalStorage() );
 
     // dragend
+  }
+
+  deleteMarker(index: number) {
+
+    this.markers[index].marker.remove();
+    this.markers.slice(index,1);
+
   }
 
   // deleteMarker( index: number ) {
