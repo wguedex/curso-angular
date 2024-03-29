@@ -1,15 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MapsModule } from './maps/maps.module';
 
 const routes: Routes = [
   {
-    path:'maps',
-    loadChildren: () => import('./maps/maps.module').then(m => m.MapsModule)
+    path: 'maps',
+    loadChildren: () => import('./maps/maps.module').then( m => m.MapsModule ),
   },
   {
     path: '**',
-    redirectTo: 'maps'
+    redirectTo: 'maps',
   }
 ];
 
