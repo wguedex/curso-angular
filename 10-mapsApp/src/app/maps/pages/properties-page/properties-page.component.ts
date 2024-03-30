@@ -6,10 +6,11 @@ interface House {
   lngLat: [number, number];
 }
 
+
+
 @Component({
-  selector: 'app-properties-page',
   templateUrl: './properties-page.component.html',
-  styleUrl: './properties-page.component.css'
+  styleUrls: ['./properties-page.component.css']
 })
 export class PropertiesPageComponent {
 
@@ -35,5 +36,6 @@ export class PropertiesPageComponent {
       lngLat: [ -3.7112735618380177, 40.42567285425766 ]
     },
   ]
+
 
 }
