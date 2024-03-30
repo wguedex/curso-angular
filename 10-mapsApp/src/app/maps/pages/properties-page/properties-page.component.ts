@@ -6,8 +6,6 @@ interface House {
   lngLat: [number, number];
 }
 
-
-
 @Component({
   templateUrl: './properties-page.component.html',
   styleUrls: ['./properties-page.component.css']
