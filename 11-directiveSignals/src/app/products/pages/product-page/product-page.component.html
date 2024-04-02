@@ -19,7 +19,7 @@
 
   <div class="row">
     <div class="col">
-      <button class="btn btn-primary">
+      <button (click)="changeColor()" class="btn btn-primary">
         Cambiar color
       </button>
     </div>
@@ -27,7 +27,6 @@
 
 </form>
 
-<pre>
-  {{myForm.get('name')?.errors | json}}
-</pre>
+<pre class="mt-5">{{ myForm.get('name')?.errors | json }}</pre>
+<p>Color: {{ color }}</p>
 
