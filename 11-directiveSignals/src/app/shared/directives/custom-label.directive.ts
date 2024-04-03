@@ -1,10 +1,20 @@
-import { Directive } from '@angular/core';
+import { Directive, ElementRef, OnInit } from '@angular/core';
 
 @Directive({
   selector: '[customLabel]'
 })
-export class CustomLabelDirective {
+export class CustomLabelDirective implements OnInit {
 
-  constructor() { }
+  private htmlElement?: ElementRef<HTMLElement>
+
+  constructor( private el : ElementRef<HTMLElement>) {
+    console.log(el)
+    this.htmlElement=el;
+    this.htmlElement.nativeElement.innerHTML='Hola Mundo';
+  }
+
+  ngOnInit(): void {
+    console.log('Directiva - NgOnInit')
+  }
 
 }
