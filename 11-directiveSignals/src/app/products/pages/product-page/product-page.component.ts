@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,11 +8,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class ProductPageComponent {
 
-
   // constructor( private fb: FormBuilder ) {}
   private fb = inject( FormBuilder );
 
-  public color:string = 'green';
+  public color:string = 'red';
 
   public myForm: FormGroup = this.fb.group({
     name: ['', [ Validators.required, Validators.minLength(6), Validators.email ] ]
