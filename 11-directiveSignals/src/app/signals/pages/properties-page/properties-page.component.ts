@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class PropertiesPageComponent {
 
+  onFieldUpdated(field:string, value : string){
+    console.log({field, value})
+  }
+
 }

@@ -1,1 +1,30 @@
-<p>properties-page works!</p>
+<h1>Mutaciones</h1>
+<hr>
+<div class="crow">
+  <div class="col-6">
+
+    <input
+    type="text"
+    class="corm-control"
+    #txtEmail
+    (input)="onFieldUpdated('email',txtEmail.value)">
+
+    <input
+    type="text"
+    class="corm-control"
+    #txtFirstName
+    (input)="onFieldUpdated('first_name',txtFirstName.value)">
+
+    <input
+    type="text"
+    class="corm-control"
+    #txtLastName
+    (input)="onFieldUpdated('last_name',txtLastName.value)">
+
+  </div>
+  <div class="col-6">
+    <pre>
+      {{'asd'}}
+    </pre>
+  </div>
+</div>
