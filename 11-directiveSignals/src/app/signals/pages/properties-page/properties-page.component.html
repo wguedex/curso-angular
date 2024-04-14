@@ -7,24 +7,28 @@
     type="text"
     class="corm-control"
     #txtEmail
-    (input)="onFieldUpdated('email',txtEmail.value)">
-
+    (input)="onFieldUpdated('email',txtEmail.value)"
+    [value]="user().email">
+    <br>
     <input
     type="text"
     class="corm-control"
     #txtFirstName
-    (input)="onFieldUpdated('first_name',txtFirstName.value)">
-
+    (input)="onFieldUpdated('first_name',txtFirstName.value)"
+    [value]="user().first_name">
+    <br>
     <input
     type="text"
     class="corm-control"
     #txtLastName
-    (input)="onFieldUpdated('last_name',txtLastName.value)">
+    (input)="onFieldUpdated('last_name',txtLastName.value)"
+    [value]="user().last_name">
 
   </div>
   <div class="col-6">
     <pre>
-      {{'asd'}}
+      {{user() | json}}
+      {{fullName()}}
     </pre>
   </div>
 </div>
