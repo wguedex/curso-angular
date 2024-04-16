@@ -1,34 +1,45 @@
 <h1>Mutaciones</h1>
 <hr>
-<div class="crow">
+
+<div class="row">
   <div class="col-6">
 
     <input
-    type="text"
-    class="corm-control"
-    #txtEmail
-    (input)="onFieldUpdated('email',txtEmail.value)"
-    [value]="user().email">
-    <br>
+      #txtEmail
+      type="text"
+      class="form-control mb-2"
+      (input)="onFieldUpdated('email', txtEmail.value )"
+      [value]="user().email"
+    >
+
     <input
-    type="text"
-    class="corm-control"
-    #txtFirstName
-    (input)="onFieldUpdated('first_name',txtFirstName.value)"
-    [value]="user().first_name">
-    <br>
+      #txtFirstName
+      type="text"
+      class="form-control mb-2"
+      (input)="onFieldUpdated('first_name', txtFirstName.value )"
+      [value]="user().first_name"
+    >
+
     <input
-    type="text"
-    class="corm-control"
-    #txtLastName
-    (input)="onFieldUpdated('last_name',txtLastName.value)"
-    [value]="user().last_name">
+      #txtLastName
+      type="text"
+      class="form-control mb-2"
+      (input)="onFieldUpdated('last_name', txtLastName.value )"
+      [value]="user().last_name"
+    >
+
 
   </div>
+
   <div class="col-6">
-    <pre>
-      {{user() | json}}
-      {{fullName()}}
-    </pre>
+    <!-- data del usuario -->
+    <pre>{{ user() | json }}</pre>
+
+    {{ fullName() }}
+
+
+    <button (click)="increaseBy(+1)" class="btn btn-primary">
+      +1
+    </button>
   </div>
 </div>
