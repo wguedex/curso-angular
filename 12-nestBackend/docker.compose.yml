@@ -4,10 +4,11 @@ services:
   db:
     container_name: mean-db
     image: mongo:5.0.16
+    command: mongod --port 27018
     volumes:
       - ./mongo:/data/db
     ports:
-      - 27017:27017
+      - 27018:27018
     restart: always
     
 
