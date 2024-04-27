@@ -1,7 +1,0 @@
-
-
-
-
-export const jwtConstants = {
-    secret:''
-}
