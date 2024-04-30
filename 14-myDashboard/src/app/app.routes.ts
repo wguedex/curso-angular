@@ -32,7 +32,7 @@ export const routes: Routes = [
         loadComponent: () => import('./dashboard/pages/users/users.component').then( c => c.UsersComponent),
       },
       {
-        path : 'user',
+        path : 'user/:id',
         title: 'User',
         loadComponent: () => import('./dashboard/pages/user/user.component').then( c => c.UserComponent),
       },
