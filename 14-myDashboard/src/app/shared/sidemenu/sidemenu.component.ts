@@ -7,7 +7,7 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   imports: [
     CommonModule,
   ],
-  template: `<p>sidemenu works!</p>`,
+  templateUrl: './sidemenu.component.html',
   styleUrl: './sidemenu.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
