@@ -17,8 +17,7 @@
 
   <!-- @switch -->
   <div class="bg-white rounded shadow p-10">
-
-    <h2 class="text-3xl">{{grade()}}</h2>
+    <h2 class="text-3xl">{{ grade() }}</h2>
 
     @switch (grade()) { @case ('A') {
     <p>Arriba de 90</p>
@@ -27,6 +26,34 @@
     } @default {
     <p>Reprobado</p>
     } }
+  </div>
+
+  <!-- @for -->
+  <div class="bg-white rounded shadow p-10">
+    <ul>
+      @for (frameWork of frameWorks(); track frameWork ; let i = $index, first = $first, last = $last, even = $even, odd = $odd, count = $count) {
+      <li [class]="{'bg-red-100':even && !first && ! last,
+                    'bg-purple-100':odd && !first && ! last,
+                    'bg-blue-100':first || last}">
+        {{ i + 1 }}/{{count}} - {{ frameWork }}
+      </li>
+      }
+    </ul>
+  </div>
+
+  <div class="bg-white rounded shadow p-10">
+    <ul>
+      @for (frameWork of frameWorks2(); track frameWork; let i = $index; ) {
+      <li>
+        {{ frameWork }}
+      </li>
+      }
+      @empty {
+        <li>
+          No hay frameWorks agregados
+        </li>
+      }
+    </ul>
   </div>
 
 </section>
