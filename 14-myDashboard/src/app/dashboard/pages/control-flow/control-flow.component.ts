@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
+import { TitleComponent } from '@shared/title/title.component';
 
 type Grade = 'A' | 'B' | 'C' | 'D' | 'E' | 'F'
 
@@ -7,7 +8,7 @@ type Grade = 'A' | 'B' | 'C' | 'D' | 'E' | 'F'
   selector: 'app-control-flow',
   standalone: true,
   imports: [
-    CommonModule,
+    CommonModule, TitleComponent,
   ],
   templateUrl: 'control-flow.component.html',
   styleUrl: './control-flow.component.css',
