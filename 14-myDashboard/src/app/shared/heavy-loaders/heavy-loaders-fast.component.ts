@@ -17,6 +17,8 @@ export class HeavyLoadersFastComponent {
   @Input({ required: true }) cssClass!: string;
 
   constructor() {
+
     console.log('HeavyLoader Fast creado');
+
   }
 }
