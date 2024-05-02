@@ -16,8 +16,8 @@ export class SidemenuComponent {
   public menuItems = routes
     .map((routes) => routes.children ?? [])
     .flat()
-    .filter((route) => route && route.path)
-    .filter((route) => !route.path?.includes(':'));
+    .filter((route) => route && route.path);
+    // .filter((route) => !route.path?.includes(':'));
 
   constructor() {
     // const dashboardRoutes =
