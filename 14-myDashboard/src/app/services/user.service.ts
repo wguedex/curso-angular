@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, computed, inject, signal } from '@angular/core';
-import { User, UserResponse } from '@interfaces/req-response.interface';
-import { delay } from 'rxjs';
+import { User, UserResponse, UserResponse2 } from '@interfaces/req-response.interface';
+import { Observable, delay, map } from 'rxjs';
 
 interface State {
   users: User[];
@@ -37,4 +37,17 @@ export class UserService {
 
     console.log('Cargando data')
   }
+
+  getUserById(id : string) {
+
+   return  this.http.get<UserResponse2>(`https://reqres.in/api/users/${id}`)
+    .pipe(
+      delay(1500),
+      map(resp => resp.data)
+  )
+   ;
+
+    console.log('Cargando data')
+  }
+
 }
